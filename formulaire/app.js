@@ -71,20 +71,85 @@ inpMdp.addEventListener("input", (event)=>{
     if (valeurMdp.search(specialCar) !== -1){
         objValidation.symbole = 1;
     }
+    if (valeurMdp.search(alphabet) !== -1){
+        objValidation.lettre = 1;
+    }
+    if (valeurMdp.search(chiffres) !== -1){
+        objValidation.chiffre = 1;
+    }
+    
+    // propriété de l'objet event qui prend en compte la suppression du input
+    if(event.inputType = "deleteContentBackward"){
+        // si je fait un retour est que une de ces condition est = a -1, sa veut dire que j'aurais 
+        //sois supprimer une lettre, un symbole ou un chiffre
+        if (valeurMdp.search(specialCar) === -1){
+            objValidation.symbole = 0;
+        }
+        if (valeurMdp.search(alphabet) === -1){
+            objValidation.lettre = 0;
+        }
+        if (valeurMdp.search(chiffres) === -1){
+            objValidation.chiffre = 0;
+        }
+
+        // boucle for in qui permet d'itterer dans un objet
+        let testAll = 0;
+        // on ittere chaque propryete de notre objet, si notre objet de la propriété en cours, donc symbole, lettre et chiffre
+        // est sup a 0, on a donc passé la validation, alors testAll ++
+        for (const property in objValidation) {
+            if (objValidation[property] > 0) {
+                testAll ++;
+            }
+            // si inf a 3, alors afficher le message error
+            if (testAll < 3){
+                allSpan[2].style.display = "inline";
+                allImg[2].style.display = "inline";
+                allImg[2].src = "ressources/error.svg";
+            }else{ // dans le cas contraire afficher check
+                allSpan[2].style.display = "none";
+                allImg[2].src = "ressources/check.svg";
+            }
+        }
+    }
+    //force mdp 
+    //faible
+    if(valeurMdp.length <= 6 && valeurMdp.length > 0){
+        allLigne[0].style.display = "block";
+        allLigne[1].style.display = "none";
+        allLigne[2].style.display = "none";
+    }else if (valeurMdp.length > 6 && valeurMdp.length <= 9 ){
+        //moyen
+        allLigne[0].style.display = "block";
+        allLigne[1].style.display = "block";
+        allLigne[2].style.display = "none";
+    }else if (valeurMdp.length > 9){
+        //fort
+        allLigne[0].style.display = "block";
+        allLigne[1].style.display = "block";
+        allLigne[2].style.display = "block";
+    }
+        //Nul
+    else if (valeurMdp.length === 0){
+        allLigne[0].style.display = "none";
+        allLigne[1].style.display = "none";
+        allLigne[2].style.display = "none";
+    }
 });
+ //confirmation
 
+ inpConfirme.addEventListener ('input',(event) => {
 
-
-
-
-
-
-
-
-
-
-
-
-
+    if (event.target.value.length === 0) {
+        allImg[3].style.display = "inline";     
+        allImg[3].src = "ressources/error.svg"; 
+    }
+     else if (event.target.value === valeurMdp) {
+        allImg[3].style.display = "inline";     
+        allImg[3].src = "ressources/check.svg"; 
+     }else{
+        allImg[3].style.display = "inline";
+        allImg[3].src = "ressources/error.svg"; 
+     }
+ });
 
 };

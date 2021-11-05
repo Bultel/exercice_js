@@ -1,0 +1,263 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #d1b085;
+}
+
+.page{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    background-color: black;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+}
+.logo{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+.nav_links{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+.nav_links li{
+    list-style: none;
+}
+.nav_links a{
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.burger{
+    display: none;
+    cursor: pointer;
+}
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: #d1b085;
+    margin: 5px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3vw 0;
+}
+
+
+@media screen and (max-width:1024px) {
+    .nav_links{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body{
+        overflow-x: hidden;
+    }
+    .nav_links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 99999;
+    }
+    .title{
+        margin: 15vw 0;
+    }
+    .burger{
+        display: block;
+    }
+    .liner{
+        display: inline;
+    }
+    .pizza{
+        margin: 5vw 2vw;
+    }
+}
+.nav_active{
+    transform: translateX(0%);
+}
+
+.title h1{
+    font-size: 6vh;
+}
+.separation{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, black, #D66853, black);
+    margin: 3vw 0;
+}
+h3 span {
+    font-weight: normal;
+    padding-left: 3px;
+}
+.liner {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+}
+  
+    .liner::after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+      background: #D66853;
+      min-width: 20px;
+      margin: auto;
+      margin-left: 20px;
+    }
+
+.meal {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.all_pizza{
+    margin:  0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pizza{
+    display: flex;
+    flex-direction: column;
+    width: 70vh;
+    margin: 2vw;
+}
+.block_pizza{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.image_pizza{
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 50%;
+}
+.pizza_name{
+    display: flex;
+    margin-bottom: 1.3vw;
+}
+.pizza_name p {
+    padding-left: 10px;
+}
+.add_order{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.add_order__input{
+    display: flex;
+}
+.add_order input {
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+    width: 32px;
+    height: 18px;
+}
+.add_order label {
+   border: solid;
+   padding: 0.1rem 0.6rem;
+   position: relative;
+}
+.add_order p{
+    margin: 0px 16px;
+}
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2vw 0;
+    width: 90%;
+}
+.total p{
+    font-size: 6vh;
+}
+
+
+#paypal-button-container{
+    display: none;
+    justify-content: center;
+}
+
+  
